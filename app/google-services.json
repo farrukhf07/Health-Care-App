@@ -1,0 +1,49 @@
+{
+  "project_info": {
+    "project_number": "526857295055",
+    "firebase_url": "https://my-health-application-ce62c-default-rtdb.firebaseio.com",
+    "project_id": "my-health-application-ce62c",
+    "storage_bucket": "my-health-application-ce62c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:526857295055:android:4900516f9f0750db2f53ba",
+        "android_client_info": {
+          "package_name": "com.example.adminhealth"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB-zOf_uIgl0VsXJNAZpFK4omIjUFxMLzQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:526857295055:android:ae49332b925ac6e42f53ba",
+        "android_client_info": {
+          "package_name": "com.example.myhealth"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB-zOf_uIgl0VsXJNAZpFK4omIjUFxMLzQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
