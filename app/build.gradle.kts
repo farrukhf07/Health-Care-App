@@ -97,5 +97,6 @@ dependencies {
     // fetching image
     api("io.coil-kt:coil-compose:2.2.2")
     api("io.coil-kt:coil-svg:2.2.2")
-
+    // Gemni API
+    implementation("com.google.ai.client.generativeai:generativeai:0.9.0")
 }

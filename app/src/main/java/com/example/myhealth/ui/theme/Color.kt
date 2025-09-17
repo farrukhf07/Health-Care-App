@@ -24,3 +24,6 @@ val lightGreen2 = Color(0xFFDEF9C4)
 val newpurple = Color(0xFFE7CCCC)
 val gray = Color(0xFFD3D3D3)
 val firstAidColor = Color(0xFFB41313)
+
+val ColorUserMessage = Color(0xFF03A9F4)
+val ColorModelMessage = Color(0xFF4CAF50)

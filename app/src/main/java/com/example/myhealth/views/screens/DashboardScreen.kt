@@ -4,6 +4,7 @@ import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.gestures.snapping.SnapPosition
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -35,6 +36,7 @@ import com.example.myhealth.R
 import com.example.myhealth.ui.theme.PurpleGrey80
 import com.example.myhealth.ui.theme.black
 import com.example.myhealth.ui.theme.firstAidColor
+import com.example.myhealth.ui.theme.lightBlueBackground
 import com.example.myhealth.ui.theme.lightGreen1
 import com.example.myhealth.ui.theme.lightPink
 import com.example.myhealth.ui.theme.primaryBlue
@@ -47,6 +49,7 @@ fun DashboardScreen(
     orderMedicine:()->Unit,
     findDoc:()->Unit,
     labTest:()->Unit,
+    aiChat:()->Unit,
     fever:()->Unit,
     dengue:()->Unit,
     heartAttack:()->Unit,
@@ -54,6 +57,7 @@ fun DashboardScreen(
 ) {
     Column(
         modifier = Modifier.fillMaxSize()
+            .background(white)
     ) {
         Column(modifier = Modifier
             .fillMaxWidth()
@@ -81,11 +85,11 @@ fun DashboardScreen(
                 fontWeight = FontWeight.Bold
             )
         }
-        Spacer(modifier = Modifier.height(10.dp))
+        Spacer(modifier = Modifier.height(5.dp))
         Card(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(horizontal = 15.dp, vertical = 8.dp),
+                .padding(horizontal = 15.dp, vertical = 5.dp),
             colors = CardDefaults.cardColors(
                 containerColor = lightGreen1
             ),
@@ -95,18 +99,18 @@ fun DashboardScreen(
             Row(modifier = Modifier
                 .fillMaxWidth()
                 .clickable { orderMedicine() }
-                .padding(horizontal = 20.dp, vertical = 8.dp),
+                .padding(horizontal = 20.dp, vertical = 5.dp),
                 horizontalArrangement = Arrangement.SpaceBetween) {
                 Column {
                     Text(
                         text = "Order Medicines",
                         color = black,
-                        fontSize = 24.sp,
+                        fontSize = 22.sp,
                         fontWeight = FontWeight.Bold
                     )
-                    Spacer(modifier = Modifier.height(14.dp))
+                    Spacer(modifier = Modifier.height(7.dp))
                     Text(text = "Delivered to your Doorstep")
-                    Spacer(modifier = Modifier.height(5.dp))
+                    Spacer(modifier = Modifier.height(3.dp))
                     Text(text = "at upto 10% OFF!")
                     Icon(painter = painterResource(id = R.drawable.ic_next), contentDescription = "Next",
                         tint = black)
@@ -116,11 +120,11 @@ fun DashboardScreen(
                 )
             }
         }
-        Spacer(modifier = Modifier.height(10.dp))
+        Spacer(modifier = Modifier.height(8.dp))
         Card(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(horizontal = 15.dp, vertical = 8.dp),
+                .padding(horizontal = 15.dp, vertical = 5.dp),
             colors = CardDefaults.cardColors(
                 containerColor = lightPink
             ),
@@ -130,18 +134,18 @@ fun DashboardScreen(
             Row(modifier = Modifier
                 .fillMaxWidth()
                 .clickable { findDoc() }
-                .padding(horizontal = 20.dp, vertical = 8.dp),
+                .padding(horizontal = 20.dp, vertical = 5.dp),
                 horizontalArrangement = Arrangement.SpaceBetween) {
                 Column {
                     Text(
                         text = "Find Doctors",
                         color = black,
-                        fontSize = 24.sp,
+                        fontSize = 22.sp,
                         fontWeight = FontWeight.Bold
                     )
-                    Spacer(modifier = Modifier.height(14.dp))
+                    Spacer(modifier = Modifier.height(7.dp))
                     Text(text = "Book Appointment")
-                    Spacer(modifier = Modifier.height(4.dp))
+                    Spacer(modifier = Modifier.height(3.dp))
                     Text(text = "with Ease")
                     Icon(painter = painterResource(id = R.drawable.ic_next), contentDescription = "Next"
                     , tint = black)
@@ -149,11 +153,11 @@ fun DashboardScreen(
                 Image(painter = painterResource(id = R.drawable.ic_doc), contentDescription = "Doctor Image")
             }
         }
-        Spacer(modifier = Modifier.height(10.dp))
+        Spacer(modifier = Modifier.height(8.dp))
         Card(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(horizontal = 15.dp, vertical = 8.dp),
+                .padding(horizontal = 15.dp, vertical = 5.dp),
             colors = CardDefaults.cardColors(
                 containerColor = PurpleGrey80
             ),
@@ -163,23 +167,53 @@ fun DashboardScreen(
             Row(modifier = Modifier
                 .fillMaxWidth()
                 .clickable { labTest() }
-                .padding(horizontal = 20.dp, vertical = 8.dp),
+                .padding(horizontal = 20.dp, vertical = 5.dp),
                 horizontalArrangement = Arrangement.SpaceBetween) {
                 Column {
                     Text(
                         text = "Lab Tests",
                         color = black,
-                        fontSize = 24.sp,
+                        fontSize = 22.sp,
                         fontWeight = FontWeight.Bold
                     )
-                    Spacer(modifier = Modifier.height(14.dp))
+                    Spacer(modifier = Modifier.height(10.dp))
                     Text(text = "Home sampling & in-lab")
-                    Spacer(modifier = Modifier.height(4.dp))
+                    Spacer(modifier = Modifier.height(3.dp))
                     Text(text = "text bookings")
                     Icon(painter = painterResource(id = R.drawable.ic_next), contentDescription = "Next"
                         , tint = black)
                 }
                 Image(painter = painterResource(id = R.drawable.ic_tubes), contentDescription = "Test Tubes")
+            }
+        }
+        Card(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(horizontal = 15.dp, vertical = 5.dp),
+            colors = CardDefaults.cardColors(
+                containerColor = lightBlueBackground
+            ),
+            border = BorderStroke(1.dp, Color.Transparent),
+            shape = RoundedCornerShape(20.dp)
+        ) {
+            Row(modifier = Modifier
+                .fillMaxWidth()
+                .clickable { aiChat() }
+                .padding(horizontal = 20.dp, vertical = 5.dp),
+                horizontalArrangement = Arrangement.SpaceBetween) {
+                Column {
+                    Text(
+                        text = "AI Chatbot",
+                        color = black,
+                        fontSize = 22.sp,
+                        fontWeight = FontWeight.Bold
+                    )
+                    Spacer(modifier = Modifier.height(10.dp))
+                    Text(text = "24/7 AI Support")
+                    Icon(painter = painterResource(id = R.drawable.ic_next), contentDescription = "Next"
+                        , tint = black)
+                }
+                Image(painter = painterResource(id = R.drawable.ic_bot), contentDescription = "AI Bot")
             }
         }
         Spacer(modifier = Modifier.height(5.dp))
@@ -193,7 +227,8 @@ fun DashboardScreen(
         Row(modifier = Modifier
             .fillMaxWidth()
             .background(white),
-            horizontalArrangement = Arrangement.SpaceAround) {
+            horizontalArrangement = Arrangement.SpaceAround,
+        verticalAlignment = Alignment.CenterVertically) {
             Card(modifier = Modifier
                 .background(white)
                 .clickable { fever() }
@@ -252,6 +287,7 @@ fun DashboardScreen(
             Text(
                 text = "View All",
                 textDecoration = TextDecoration.Underline,
+                textAlign = TextAlign.Center,
                 modifier = Modifier.clickable {
                     viewAllDisease()
                 }
@@ -264,5 +300,5 @@ fun DashboardScreen(
 @Preview(showBackground = true)
 @Composable
 fun ShowDashboard() {
-    DashboardScreen(viewAllDisease = {}, orderMedicine = {}, findDoc = {}, labTest = {}, fever = {}, dengue = {}, heartAttack = {}, profile = {} )
+    DashboardScreen(viewAllDisease = {}, orderMedicine = {}, findDoc = {}, labTest = {}, aiChat = {}, fever = {}, dengue = {}, heartAttack = {}, profile = {} )
 }

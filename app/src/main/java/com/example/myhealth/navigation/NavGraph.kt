@@ -6,6 +6,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.navigation
 import com.example.myhealth.utils.APP_NAV_GRAPH
 import com.example.myhealth.utils.AUTH
+import com.example.myhealth.views.screens.ChatbotScreen
 import com.example.myhealth.views.screens.DashboardScreen
 import com.example.myhealth.views.screens.DiseaseDengueDetailScreen
 import com.example.myhealth.views.screens.DiseaseDetailScreen
@@ -95,6 +96,9 @@ fun NavGraphBuilder.appNavGraph(
                 labTest = {
                           navController.navigate(MyHealthScreen.LabTestScreen.name)
                 },
+                aiChat = {
+                         navController.navigate(MyHealthScreen.ChatbotScreen.name)
+                },
                 fever = {
                         navController.navigate(MyHealthScreen.DiseaseFeverDetailScreen.name)
                 },
@@ -108,6 +112,10 @@ fun NavGraphBuilder.appNavGraph(
                     navController.navigate(MyHealthScreen.PatientProfileScreen.name)
                 }
             )
+        }
+
+        composable(route = MyHealthScreen.ChatbotScreen.name) {
+            ChatbotScreen()
         }
 
         composable(route = MyHealthScreen.FindDoctorScreen.name) {

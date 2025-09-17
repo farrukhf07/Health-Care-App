@@ -32,6 +32,8 @@ sealed class MyHealthScreen(
 
     object FindDoctorScreen: MyHealthScreen(route = "FindDoctorScreen")
 
+    object ChatbotScreen: MyHealthScreen(route = "ChatbotScreen")
+
     object DoctorProfileScreen: MyHealthScreen(route = "DoctorProfileScreen",
         navArguments = listOf(
             navArgument(DestinationArgs.doctor){
