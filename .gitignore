@@ -12,4 +12,5 @@
 /captures
 .externalNativeBuild
 .cxx
+AIConstant.kt
 local.properties
